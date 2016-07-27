@@ -1,0 +1,21 @@
+.page__toolbar {
+  background-color: #ffdb4d;
+}
+
+.page__navigator {
+  text-align: center;
+}
+
+.page__navigator-current-day {
+  font-weight: bold;
+  color: #666;
+}
+
+.page__navigator-left-arrow,
+.page__navigator-right-arrow {
+  color: #666;
+  
+  &:focus {
+    background-color: #ffdb4d;
+  }
+}

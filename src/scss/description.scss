@@ -1,0 +1,37 @@
+.description__title {
+  color: #666;
+}
+.description__name {
+  font-size: 22px;
+  font-weight: bold;
+  color: #666;
+  width: 90%;
+  margin: 15px auto 0;
+}
+.description__text {
+  width: 90%;
+  margin: 15px auto 0;
+  line-height: 1.5em;
+}
+
+.description__toolbar {
+  background-color: #ffdb4d;
+}
+
+.description__back-button {
+  color: #666;
+}
+
+.description__back-button:focus,
+.description__back-button:active,
+.description__back-button:hover {
+  background-color: #debf42;
+}
+
+.description__image {
+  width: 100%;
+  
+  img {
+    width: 100%;
+  }
+}

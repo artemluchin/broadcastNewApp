@@ -1,0 +1,109 @@
+.channel__title {
+  position: relative;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  height: 60px;
+  padding: 0; }
+
+.channel__logo {
+  width: 30px;
+  top: 15px;
+  left: 10px;
+  position: absolute;
+  height: 30px; }
+  .channel__logo img {
+    width: 100%; }
+
+.channel__name {
+  font-size: 15px;
+  text-transform: none;
+  font-weight: bold;
+  line-height: 60px;
+  margin-left: 50px; }
+
+.description__title {
+  color: #666; }
+
+.description__name {
+  font-size: 22px;
+  font-weight: bold;
+  color: #666;
+  width: 90%;
+  margin: 15px auto 0; }
+
+.description__text {
+  width: 90%;
+  margin: 15px auto 0;
+  line-height: 1.5em; }
+
+.description__toolbar {
+  background-color: #ffdb4d; }
+
+.description__back-button {
+  color: #666; }
+
+.description__back-button:focus,
+.description__back-button:active,
+.description__back-button:hover {
+  background-color: #debf42; }
+
+.description__image {
+  width: 100%; }
+  .description__image img {
+    width: 100%; }
+
+.filter {
+  text-align: center;
+  font-size: 0;
+  border-top: 1px solid;
+  background-color: #eee; }
+
+.filter__item {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  display: inline-block;
+  width: 33.333%; }
+
+.filter__item_active {
+  background-color: #ffdb4d; }
+
+.filter__item-icon {
+  font-size: 18px; }
+
+.filter__item-title {
+  font-size: 12px;
+  color: #666; }
+
+.page__toolbar {
+  background-color: #ffdb4d; }
+
+.page__navigator {
+  text-align: center; }
+
+.page__navigator-current-day {
+  font-weight: bold;
+  color: #666; }
+
+.page__navigator-left-arrow,
+.page__navigator-right-arrow {
+  color: #666; }
+  .page__navigator-left-arrow:focus,
+  .page__navigator-right-arrow:focus {
+    background-color: #ffdb4d; }
+
+.programm__item_hide {
+  display: none; }
+
+.programm__item:last-child {
+  margin-bottom: 35px; }
+
+.programm__item-time {
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+  margin-right: 15px;
+  min-width: 40px; }
+
+.programm__item-name {
+  max-width: 75%;
+  font-size: 15px; }

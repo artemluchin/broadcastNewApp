@@ -1,0 +1,795 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="lib/onsenui/js/onsenui.min.js"></script>
+
+    <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<ons-navigator animation="slide" id="myNavigator" page="today.html"></ons-navigator>
+
+<ons-template id="today.html">
+  <ons-page id="today">
+    <ons-toolbar class="page__toolbar">
+      <div class="center page__navigator">
+          <ons-button modifier="quiet" class="page__navigator-left-arrow" onclick="_onLeftArrowClick()">
+            <ons-icon icon="fa-angle-left" size="2x">
+          </ons-button>
+          <span class="page__navigator-current-day">Сегодня, 15 мая</span>
+          <ons-button modifier="quiet" class="page__navigator-right-arrow" onclick="_onRightArrowClick()">
+            <ons-icon icon="fa-angle-right" size="2x">
+          </ons-button>
+      </div>
+    </ons-toolbar>
+
+    <ons-bottom-toolbar class="filter">
+      <div class="filter__item filter__item_series" data-type='series'>
+        <ons-icon class="filter__item-icon" icon="fa-television"></ons-icon>
+        <div class="filter__item-title">Сериалы</div>
+      </div>
+      <div class="filter__item filter__item_news" data-type='news'>
+        <ons-icon class="filter__item-icon" icon="fa-newspaper-o"></ons-icon>
+        <div class="filter__item-title">Новости</div>
+      </div>
+      <div class="filter__item filter__item_movies" data-type='movies'>
+        <ons-icon class="filter__item-icon" icon="fa-film"></ons-icon>
+        <div class="filter__item-title">Фильмы</div>
+      </div>
+    </ons-bottom-toolbar>
+
+    <ons-list class="channel">
+        <ons-list-header class="channel__title">
+            <div class="channel__logo">
+                <img src="assets/img/1.gif" alt="Первый канал" />
+            </div>
+            <div class="channel__name">Первый канал</div>
+        </ons-list-header>
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">03:00</div>
+            <div class="programm__item-name">Новости</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">04:30</div>
+            <div class="programm__item-name">Контрольная закупка</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">09:50</div>
+            <div class="programm__item-name">Жить здорово</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">12:00</div>
+            <div class="programm__item-name">Новости с субтитрами</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">13:25</div>
+            <div class="programm__item-name">Таблетка</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">13:55</div>
+            <div class="programm__item-name">Время покажет</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">16:00</div>
+            <div class="programm__item-name">Мужское/женское</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">18:00</div>
+            <div class="programm__item-name">Вечерние новости с субтитрами</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">19:50</div>
+            <div class="programm__item-name">"Пусть говорят" с Андреем Малаховым</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">21:00</div>
+            <div class="programm__item-name">Время</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item modifier="nodivider" class="programm__item">
+            <div class="programm__item-time">23:45</div>
+            <div class="programm__item-name">Вечерний Ургант</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+      </ons-list>
+
+      <ons-list class="channel">
+        <ons-list-header class="channel__title">
+            <div class="channel__logo">
+                <img src="assets/img/2.gif" alt="Россия 1" />
+            </div>
+            <div class="channel__name">Россия 1</div>
+        </ons-list-header>
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">09:00</div>
+            <div class="programm__item-name">Вести</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">09:15</div>
+            <div class="programm__item-name">Утро России</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">09:55</div>
+            <div class="programm__item-name">О самом главном</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">14:30</div>
+            <div class="programm__item-name">Местное время. Вести-Москва</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='series'>
+            <div class="programm__item-time">15:00</div>
+            <div class="programm__item-name">Без следа (15 серия)</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='series'>
+            <div class="programm__item-time">16:00</div>
+            <div class="programm__item-name">Без следа (16 серия)</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">19:35</div>
+            <div class="programm__item-name">Местное время. Вести-Москва</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">22:55</div>
+            <div class="programm__item-name">Специальный корреспондент</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+    </ons-list>
+
+    <ons-list class="channel">
+        <ons-list-header class="channel__title">
+            <div class="channel__logo">
+                <img src="assets/img/3.gif" alt="ТВЦ" />
+            </div>
+            <div class="channel__name">ТВЦ</div>
+        </ons-list-header>
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">06:00</div>
+            <div class="programm__item-name">Настроение</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='movies'>
+            <div class="programm__item-time">08:40</div>
+            <div class="programm__item-name">Сладкая женщина</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">10:35</div>
+            <div class="programm__item-name">Олег Янковский. Последняя охота</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">11:30</div>
+            <div class="programm__item-name">События</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='series'>
+            <div class="programm__item-time">11:55</div>
+            <div class="programm__item-name">Отец Браун (1-я серия - "Адская машина")</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='movies'>
+            <div class="programm__item-time">15:40</div>
+            <div class="programm__item-name">Марафон для трех граций (1-я и 2-я серии)</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">17:30</div>
+            <div class="programm__item-name">Город новостей</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">20:00</div>
+            <div class="programm__item-name">Право голоса</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">22:30</div>
+            <div class="programm__item-name">Линия защиты</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">23:05</div>
+            <div class="programm__item-name">Хроники московского быта. Женщины первых миллионеров</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+      </ons-list>
+  </ons-page>
+</ons-template>
+
+<!-- ------------------------------------------------------------------ ЗАВТРА ----------------------------------------------------------- -->
+
+<ons-template id="tomorrow.html">
+  <ons-page id="tomorrow">
+    <ons-toolbar class="page__toolbar">
+      <div class="center page__navigator">
+          <ons-button modifier="quiet" class="page__navigator-left-arrow" onclick="_onLeftArrowClick()">
+            <ons-icon icon="fa-angle-left" size="2x">
+          </ons-button>
+          <span class="page__navigator-current-day">Завтра, 16 мая</span>
+          <ons-button modifier="quiet" class="page__navigator-right-arrow" onclick="_onRightArrowClick()">
+            <ons-icon icon="fa-angle-right" size="2x">
+          </ons-button>
+      </div>
+    </ons-toolbar>
+
+    <ons-bottom-toolbar class="filter">
+      <div class="filter__item filter__item_series" data-type='series'>
+        <ons-icon class="filter__item-icon" icon="fa-television"></ons-icon>
+        <div class="filter__item-title">Сериалы</div>
+      </div>
+      <div class="filter__item filter__item_news" data-type='news'>
+        <ons-icon class="filter__item-icon" icon="fa-newspaper-o"></ons-icon>
+        <div class="filter__item-title">Новости</div>
+      </div>
+      <div class="filter__item filter__item_movies" data-type='movies'>
+        <ons-icon class="filter__item-icon" icon="fa-film"></ons-icon>
+        <div class="filter__item-title">Фильмы</div>
+      </div>
+    </ons-bottom-toolbar>
+
+    <ons-list class="channel">
+        <ons-list-header class="channel__title">
+            <div class="channel__logo">
+                <img src="assets/img/1.gif" alt="Первый канал" />
+            </div>
+            <div class="channel__name">Первый канал</div>
+        </ons-list-header>
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">03:30</div>
+            <div class="programm__item-name">Модный приговор</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">05:00</div>
+            <div class="programm__item-name">Телеканал "Доброе утро"</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">09:00</div>
+            <div class="programm__item-name">Новости</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">10:55</div>
+            <div class="programm__item-name">Модный приговор</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">12:00</div>
+            <div class="programm__item-name">Прямая линия с Владимиром Путиным</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">15:15</div>
+            <div class="programm__item-name">Время покажет</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">17:00</div>
+            <div class="programm__item-name">Наедине со всеми</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">18:00</div>
+            <div class="programm__item-name">Вечерние новости с субтитрами</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">18:45</div>
+            <div class="programm__item-name">Давай поженимся</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">21:00</div>
+            <div class="programm__item-name">Время</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+      </ons-list>
+
+      <ons-list class="channel">
+        <ons-list-header class="channel__title">
+            <div class="channel__logo">
+                <img src="assets/img/2.gif" alt="Россия 1" />
+            </div>
+            <div class="channel__name">Россия 1</div>
+        </ons-list-header>
+        <ons-list-item class="programm__item" data-type='series'>
+            <div class="programm__item-time">02:50</div>
+            <div class="programm__item-name">Срочно в номер. На службе закона ("Мир женщин", 2-я серия)</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">03:50</div>
+            <div class="programm__item-name">Комната смеха</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">04:45</div>
+            <div class="programm__item-name">Вести. Дежурная часть</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">05:00</div>
+            <div class="programm__item-name">Утро России</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">09:55</div>
+            <div class="programm__item-name">О самом главном</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">12:00</div>
+            <div class="programm__item-name">Прямая линия с Владимиром Путиным</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">15:00</div>
+            <div class="programm__item-name">Вести</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">17:30</div>
+            <div class="programm__item-name">Вечер с Владимиром Соловьевым</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">20:00</div>
+            <div class="programm__item-name">Вести</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='series'>
+            <div class="programm__item-time">21:30</div>
+            <div class="programm__item-name">Следователь Тихонов ("Часы для мистера Келли", 1-я серия)</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='series'>
+            <div class="programm__item-time">22:30</div>
+            <div class="programm__item-name">Следователь Тихонов ("Часы для мистера Келли", 2-я серия)</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+    </ons-list>
+
+    <ons-list class="channel">
+        <ons-list-header class="channel__title">
+            <div class="channel__logo">
+                <img src="assets/img/3.gif" alt="ТВЦ" />
+            </div>
+            <div class="channel__name">ТВЦ</div>
+        </ons-list-header>
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">00:25</div>
+            <div class="programm__item-name">Русский Вопрос</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='series'>
+            <div class="programm__item-time">01:10</div>
+            <div class="programm__item-name">Отец Браун ("Мэр и фокусник". "Голубой крест")</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='movies'>
+            <div class="programm__item-time">02:50</div>
+            <div class="programm__item-name">Ход конем</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">08:00</div>
+            <div class="programm__item-name">Доктор И... (Выпуск от 14 апреля)</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='movies'>
+            <div class="programm__item-time">08:30</div>
+            <div class="programm__item-name">Евдокия</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">11:30</div>
+            <div class="programm__item-name">События</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='series'>
+            <div class="programm__item-time">11:50</div>
+            <div class="programm__item-name">Отец Браун (3-я серия - "Гордость Прайдов" и 4-я серия - "Тень эшафота")</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='movies'>
+            <div class="programm__item-time">15:35</div>
+            <div class="programm__item-name">Марафон для трех граций (3-я и 4-я серии)</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">17:30</div>
+            <div class="programm__item-name">События</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">20:00</div>
+            <div class="programm__item-name">Право голоса</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">21:35</div>
+            <div class="programm__item-name">Петровка, 38</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">22:00</div>
+            <div class="programm__item-name">События</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+      </ons-list>
+  </ons-page>
+</ons-template>
+
+<!-- ------------------------------------------------------------------ ВЧЕРА ----------------------------------------------------------- -->
+
+<ons-template id="yesterday.html">
+  <ons-page id="yesterday">
+    <ons-toolbar class="page__toolbar">
+      <div class="center page__navigator">
+          <ons-button modifier="quiet" class="page__navigator-left-arrow" onclick="_onLeftArrowClick()">
+            <ons-icon icon="fa-angle-left" size="2x">
+          </ons-button>
+          <span class="page__navigator-current-day">Вчера, 14 мая</span>
+          <ons-button modifier="quiet" class="page__navigator-right-arrow" onclick="_onRightArrowClick()">
+            <ons-icon icon="fa-angle-right" size="2x">
+          </ons-button>
+      </div>
+    </ons-toolbar>
+
+    <ons-bottom-toolbar class="filter">
+      <div class="filter__item filter__item_series" data-type='series'>
+        <ons-icon class="filter__item-icon" icon="fa-television"></ons-icon>
+        <div class="filter__item-title">Сериалы</div>
+      </div>
+      <div class="filter__item filter__item_news" data-type='news'>
+        <ons-icon class="filter__item-icon" icon="fa-newspaper-o"></ons-icon>
+        <div class="filter__item-title">Новости</div>
+      </div>
+      <div class="filter__item filter__item_movies" data-type='movies'>
+        <ons-icon class="filter__item-icon" icon="fa-film"></ons-icon>
+        <div class="filter__item-title">Фильмы</div>
+      </div>
+    </ons-bottom-toolbar>
+
+    <ons-list class="channel">
+        <ons-list-header class="channel__title">
+            <div class="channel__logo">
+                <img src="assets/img/1.gif" alt="Первый канал" />
+            </div>
+            <div class="channel__name">Первый канал</div>
+        </ons-list-header>
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">01:15</div>
+            <div class="programm__item-name">Время покажет</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">03:05</div>
+            <div class="programm__item-name">Наедине со всеми</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+        
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">04:15</div>
+            <div class="programm__item-name">Контрольная закупка</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+        
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">05:00</div>
+            <div class="programm__item-name">Телеканал "Доброе утро"</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+        
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">09:00</div>
+            <div class="programm__item-name">Новости</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+        
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">09:50</div>
+            <div class="programm__item-name">Жить здорово</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">12:00</div>
+            <div class="programm__item-name">Новости с субтитрами</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">13:25</div>
+            <div class="programm__item-name">Таблетка</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">13:55</div>
+            <div class="programm__item-name">Время покажет</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">16:00</div>
+            <div class="programm__item-name">Мужское/женское</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">18:00</div>
+            <div class="programm__item-name">Вечерние новости с субтитрами</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">19:50</div>
+            <div class="programm__item-name">"Пусть говорят" с Андреем Малаховым</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">21:00</div>
+            <div class="programm__item-name">Время</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+        
+        <ons-list-item class="programm__item" data-type='series'>
+            <div class="programm__item-time">21:35</div>
+            <div class="programm__item-name">Лестница в небеса (21-я и 22-я серии)</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item modifier="nodivider" class="programm__item">
+            <div class="programm__item-time">23:45</div>
+            <div class="programm__item-name">Вечерний Ургант</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+      </ons-list>
+
+      <ons-list class="channel">
+        <ons-list-header class="channel__title">
+            <div class="channel__logo">
+                <img src="assets/img/2.gif" alt="Россия 1" />
+            </div>
+            <div class="channel__name">Россия 1</div>
+        </ons-list-header>
+        
+        <ons-list-item class="programm__item" data-type='series'>
+            <div class="programm__item-time">02:25</div>
+            <div class="programm__item-name">Срочно в номер!-2 ("Без срока давности", 2-я серия)</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+        
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">03:25</div>
+            <div class="programm__item-name">Пугачева, Распутина... Все звезды Дербенева</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+        
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">09:00</div>
+            <div class="programm__item-name">Вести</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">09:15</div>
+            <div class="programm__item-name">Утро России</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">09:55</div>
+            <div class="programm__item-name">О самом главном</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+        
+        <ons-list-item class="programm__item" data-type='series'>
+            <div class="programm__item-time">11:55</div>
+            <div class="programm__item-name">Тайны следствия-10 (Черная метка)</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">14:30</div>
+            <div class="programm__item-name">Местное время. Вести-Москва</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='series'>
+            <div class="programm__item-time">15:00</div>
+            <div class="programm__item-name">Без следа (13 серия)</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='series'>
+            <div class="programm__item-time">16:00</div>
+            <div class="programm__item-name">Без следа (14 серия)</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">19:35</div>
+            <div class="programm__item-name">Местное время. Вести-Москва</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">22:55</div>
+            <div class="programm__item-name">Специальный корреспондент</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+    </ons-list>
+
+    <ons-list class="channel">
+        <ons-list-header class="channel__title">
+            <div class="channel__logo">
+                <img src="assets/img/3.gif" alt="ТВЦ" />
+            </div>
+            <div class="channel__name">ТВЦ</div>
+        </ons-list-header>
+        
+        <ons-list-item class="programm__item" data-type='movies'>
+            <div class="programm__item-time">02:35</div>
+            <div class="programm__item-name">Безотцовщина</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">04:05</div>
+            <div class="programm__item-name">Людмила Гурченко. Блеск и отчаяние</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item">
+            <div class="programm__item-time">04:50</div>
+            <div class="programm__item-name">Советский космос: четыре короля</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+        
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">06:00</div>
+            <div class="programm__item-name">Настроение</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+        
+        <ons-list-item class="programm__item" data-type='movies'>
+            <div class="programm__item-time">08:50</div>
+            <div class="programm__item-name">Их знали только в лицо</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">11:30</div>
+            <div class="programm__item-name">События</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='series'>
+            <div class="programm__item-time">11:50</div>
+            <div class="programm__item-name">Отец Браун ("Мэр и фокусник". "Голубой крест")</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">17:30</div>
+            <div class="programm__item-name">Город новостей</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='movies'>
+            <div class="programm__item-time">17:40</div>
+            <div class="programm__item-name">Сразу после сотворения мира (3-я и 4-я серии)</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+
+        <ons-list-item class="programm__item" data-type='news'>
+            <div class="programm__item-time">21:45</div>
+            <div class="programm__item-name">Петровка, 38</div>
+            <div class="right"><ons-icon icon="fa-angle-right"></div>
+        </ons-list-item>
+      </ons-list>
+  </ons-page>
+</ons-template>
+
+<ons-template id="description.html">
+  <ons-page id="description" var='description'>
+    <ons-toolbar class="description__toolbar">
+      <div class="left">
+        <ons-back-button class="description__back-button">Back</ons-back-button>
+      </div>
+      <div class="center description__title"></div>
+    </ons-toolbar>
+    <div class="description__image">
+      <img src="assets/img/img.png" alt="placeholder">
+    </div>
+    <div class="description__name"></div>
+    <div class="description__text"></div>
+  </ons-page>
+</ons-template>
+
+<script src="js/app.js"></script>
+</body>
+</html>

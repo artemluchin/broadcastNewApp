@@ -1,0 +1,22 @@
+.programm__item_hide {
+  display: none;
+}
+
+.programm__item {
+  &:last-child {
+    margin-bottom: 35px;
+  }
+}
+
+.programm__item-time {
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+    margin-right: 15px;
+    min-width: 40px;
+}
+
+.programm__item-name {
+    max-width: 75%;
+    font-size: 15px;
+}

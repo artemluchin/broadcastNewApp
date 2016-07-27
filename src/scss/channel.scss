@@ -1,0 +1,27 @@
+.channel__title {
+  position: relative;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  height: 60px;
+  padding: 0;
+}
+
+.channel__logo {
+  width: 30px;
+  top: 15px;
+  left: 10px;
+  position: absolute;
+  height: 30px;
+  
+  img {
+    width: 100%;
+  }
+}
+
+.channel__name {
+  font-size: 15px;
+  text-transform: none;
+  font-weight: bold;
+  line-height: 60px;
+  margin-left: 50px;
+}
