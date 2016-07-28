@@ -31,6 +31,10 @@
 
 <img src="https://github.com/artemluchin/broadcastNewApp/blob/master/screenshots/description.png" width="240"/>
 
+Изображение иконки приложения
+
+<img src="https://github.com/artemluchin/broadcastNewApp/blob/master/screenshots/iconView.png" width="240"/>
+
 #### Нереализованные идеи
 
 Основная идея была хранить всю телепрограмму в базе на телефоне посредством IndexedDB. Но, к сожалению,
