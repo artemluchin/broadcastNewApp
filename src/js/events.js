@@ -1,24 +1,37 @@
+/**
+ * Срабатывает при клике на кнопку "Следующий день"
+ *
+ */
 function _onRightArrowClick() {
   var currentPage = myNavigator.topPage;
   var day = getNextDay(currentPage.id);
   myNavigator.replacePage(day+'.html', {animation: 'none'});
 }
 
-
+/**
+ * Срабатывает при клике на кнопку "Предыдущий день"
+ *
+ */
 function _onLeftArrowClick() {
   var currentPage = myNavigator.topPage;
   var day = getPrevDay(currentPage.id);
   myNavigator.replacePage(day+'.html', {animation: 'none'});
 }
 
-
+/**
+ * Срабатывает при клике на телепередачу
+ *
+ */
 function _onItemClick() {
     var time = this.querySelector('.programm__item-time').innerHTML;
     var name = this.querySelector('.programm__item-name').innerHTML;
     myNavigator.pushPage('description.html', {data: {title: name, time: time}});
 }
 
-
+/**
+ * Срабатывает при клике на какой-либо из фильтров жанров.
+ *
+ */
 function _onFilterClick() {
   var type = this.dataset.type;
   var channels = [].slice.call(document.querySelectorAll('.channel'));

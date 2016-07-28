@@ -10,12 +10,14 @@ var placeholderText = 'Описание для телепередачи ';
 
 var days = ['yesterday', 'today', 'tomorrow'];
 
-// специальное событие фреймворка onsen. Срабатывает, когда страница
-// привязывается к DOM.
+/**
+ * Cпециальное событие фреймворка onsen. Срабатывает, когда страница
+ * привязывается к DOM.
+ * 
+ */
 document.addEventListener('init', function(event) {
   var page = event.target;
   
-
   if (page.id !== 'description') {
     pageContent = page.querySelector('.page__content');
     telecasts = [].slice.call(page.querySelectorAll('.programm__item'));
@@ -37,12 +39,20 @@ document.addEventListener('init', function(event) {
                                                           placeholderText + page.data.title;
   }
 });
-
-
+/**
+ * Перед переходом к окну описания телепередачи
+ * запоминает текущее положение скролла.
+ *
+ */
 myNavigator.addEventListener('prepush', function(event) {
   scroller = pageContent.scrollTop;
 });
 
+/**
+ * После того как вернулись со страницы описания, устанавливаем
+ * первоначальный скролл.
+ *
+ */
 myNavigator.addEventListener('postpop', function(event) {
   pageContent.scrollTop = scroller;
 });
